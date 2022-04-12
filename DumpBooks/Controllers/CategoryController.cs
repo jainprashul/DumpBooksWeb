@@ -17,5 +17,32 @@ namespace DumpBooks.Controllers
             IEnumerable<Category> categories = _db.Categories;
             return View(categories);
         }
+
+        // GET: Category/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Category/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _db.Categories.Add(category);
+                    _db.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(category);
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
