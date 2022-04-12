@@ -12,5 +12,5 @@ namespace DumpBooks.Data
         public DbSet<Category> Categories { get; set; }
 
 
-}
+    }
 }
