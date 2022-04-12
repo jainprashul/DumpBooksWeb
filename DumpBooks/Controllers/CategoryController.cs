@@ -31,6 +31,11 @@ namespace DumpBooks.Controllers
         {
             try
             {
+                if(category.Name == category.DisplayOrder.ToString())
+                {
+                    ModelState.AddModelError("DisplayOrder", "Display Order must be different from Name");
+                }
+                
                 if (ModelState.IsValid)
                 {
                     _db.Categories.Add(category);
