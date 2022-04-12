@@ -1,4 +1,5 @@
 ﻿using DumpBooks.Data;
+using DumpBooks.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DumpBooks.Controllers
@@ -13,7 +14,7 @@ namespace DumpBooks.Controllers
         }
         public IActionResult Index()
         {
-            var categories = _db.Categories.ToList();
+            IEnumerable<Category> categories = _db.Categories;
             return View(categories);
         }
     }
