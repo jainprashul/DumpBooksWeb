@@ -24,6 +24,7 @@
         <tr>
             <th>Category Name</th>
             <th>Order Display</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +33,17 @@
             <tr>
                 <td width="50%">@category.Name</td>
                 <td width="30%">@category.DisplayOrder </td >
+                <td width="20%">
+                    <a href="@Url.Action("Edit", "Category", new { id = category.Id })" class="btn btn-primary">
+                        <i class="bi bi-pencil"></i> &nbsp;
+                        Edit
+                    </a>
+                    <a href="@Url.Action("Delete", "Category", new { id = category.Id })" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> &nbsp;
+                        Delete
+                    </a>
+                </td>
+                    
             </tr>
         }
 </table>
