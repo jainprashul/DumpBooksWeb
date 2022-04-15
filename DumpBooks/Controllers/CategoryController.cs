@@ -39,6 +39,8 @@ namespace DumpBooks.Controllers
                 {
                     _db.Categories.Add(category);
                     _db.SaveChanges();
+
+                    TempData["Message"] = $"{category.Name} was successfully created";
                     return RedirectToAction(nameof(Index));
                 }
                 return View(category);
@@ -78,6 +80,8 @@ namespace DumpBooks.Controllers
                 {
                     _db.Categories.Update(category);
                     _db.SaveChanges();
+
+                    TempData["Message"] = "Category Updated Successfully";
                     return RedirectToAction(nameof(Index));
                 }
                 return View(category);
@@ -117,6 +121,8 @@ namespace DumpBooks.Controllers
                 }
                 _db.Categories.Remove(category);
                 _db.SaveChanges();
+
+                TempData["Message"] = "Category Deleted Successfully";
                 return RedirectToAction(nameof(Index));
             }
             catch
